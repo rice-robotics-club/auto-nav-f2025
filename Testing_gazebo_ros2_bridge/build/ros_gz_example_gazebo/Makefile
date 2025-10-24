@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_gazebo
+CMAKE_SOURCE_DIR = /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_gazebo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo
+CMAKE_BINARY_DIR = /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/CMakeFiles /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/CMakeFiles /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

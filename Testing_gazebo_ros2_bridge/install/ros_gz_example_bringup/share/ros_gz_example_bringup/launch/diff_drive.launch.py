@@ -82,11 +82,19 @@ def generate_launch_description():
         output='screen'
     )
 
-    # GNSS Subscriber Node
-    gnss_subscriber_node = Node(
+    # Waypoint Publisher Node - publishes random GNSS waypoints every 5 seconds
+    waypoint_publisher_node = Node(
         package='ros_gz_example_application',
-        executable='gnss_subscriber',
-        name='gnss_subscriber_node',
+        executable='waypoint_publisher.py',
+        name='waypoint_publisher',
+        output='screen'
+    )
+
+    # Waypoint Subscriber Node - receives and prints waypoints to terminal
+    waypoint_subscriber_node = Node(
+        package='ros_gz_example_application',
+        executable='waypoint_subscriber.py',
+        name='waypoint_subscriber',
         output='screen'
     )
     
@@ -97,5 +105,6 @@ def generate_launch_description():
         bridge,
         robot_state_publisher,
         rviz,
-        gnss_subscriber_node
+        waypoint_publisher_node,
+        waypoint_subscriber_node
     ])

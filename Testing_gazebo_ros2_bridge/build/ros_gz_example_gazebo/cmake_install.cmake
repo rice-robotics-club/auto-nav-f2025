@@ -1,8 +1,8 @@
-# Install script for directory: /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_gazebo
+# Install script for directory: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_gazebo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_gazebo")
+  set(CMAKE_INSTALL_PREFIX "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_gazebo")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,7 +49,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo/libBasicSystem.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo" TYPE SHARED_LIBRARY FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/libBasicSystem.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo" TYPE SHARED_LIBRARY FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/libBasicSystem.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo/libBasicSystem.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo/libBasicSystem.so")
     file(RPATH_CHANGE
@@ -66,7 +66,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/CMakeFiles/BasicSystem.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
+  include("/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/CMakeFiles/BasicSystem.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -76,7 +76,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo/libFullSystem.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo" TYPE SHARED_LIBRARY FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/libFullSystem.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo" TYPE SHARED_LIBRARY FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/libFullSystem.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo/libFullSystem.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/ros_gz_example_gazebo/libFullSystem.so")
     file(RPATH_CHANGE
@@ -93,27 +93,27 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/CMakeFiles/FullSystem.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
+  include("/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/CMakeFiles/FullSystem.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/worlds" TYPE DIRECTORY FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_gazebo/worlds/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/worlds" TYPE DIRECTORY FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_gazebo/worlds/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/environment" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/ros_gz_example_gazebo.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/environment" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/ros_gz_example_gazebo.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/environment" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/ros_gz_example_gazebo.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/environment" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/ros_gz_example_gazebo.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ros_gz_example_gazebo")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ros_gz_example_gazebo")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ros_gz_example_gazebo")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ros_gz_example_gazebo")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -121,7 +121,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/environment" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/environment" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -129,42 +129,42 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/environment" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/environment" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/ros_gz_example_gazebo")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/ros_gz_example_gazebo")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo/cmake" TYPE FILE FILES
-    "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_core/ros_gz_example_gazeboConfig.cmake"
-    "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_core/ros_gz_example_gazeboConfig-version.cmake"
+    "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_core/ros_gz_example_gazeboConfig.cmake"
+    "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/ament_cmake_core/ros_gz_example_gazeboConfig-version.cmake"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_gazebo/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_gazebo" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_gazebo/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -175,5 +175,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_gazebo/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

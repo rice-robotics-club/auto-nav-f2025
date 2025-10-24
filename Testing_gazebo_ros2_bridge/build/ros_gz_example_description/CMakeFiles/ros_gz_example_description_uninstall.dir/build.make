@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_description
+CMAKE_SOURCE_DIR = /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description
+CMAKE_BINARY_DIR = /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description
 
 # Utility rule file for ros_gz_example_description_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/ros_gz_example_description_uninstall.dir/compiler_depend.make
 include CMakeFiles/ros_gz_example_description_uninstall.dir/progress.make
 
 CMakeFiles/ros_gz_example_description_uninstall:
-	/usr/bin/cmake -P /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 ros_gz_example_description_uninstall: CMakeFiles/ros_gz_example_description_uninstall
 ros_gz_example_description_uninstall: CMakeFiles/ros_gz_example_description_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/ros_gz_example_description_uninstall.dir/clean:
 .PHONY : CMakeFiles/ros_gz_example_description_uninstall.dir/clean
 
 CMakeFiles/ros_gz_example_description_uninstall.dir/depend:
-	cd /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_description /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_description /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description/CMakeFiles/ros_gz_example_description_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_description /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_description /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_description/CMakeFiles/ros_gz_example_description_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/ros_gz_example_description_uninstall.dir/depend
 

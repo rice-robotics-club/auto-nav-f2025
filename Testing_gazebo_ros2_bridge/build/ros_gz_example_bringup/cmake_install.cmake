@@ -1,8 +1,8 @@
-# Install script for directory: /home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_bringup
+# Install script for directory: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_bringup
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_bringup")
+  set(CMAKE_INSTALL_PREFIX "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_bringup")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,19 +43,19 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/launch" TYPE DIRECTORY FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_bringup/launch/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/launch" TYPE DIRECTORY FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_bringup/launch/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/config" TYPE DIRECTORY FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_bringup/config/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/config" TYPE DIRECTORY FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_bringup/config/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ros_gz_example_bringup")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ros_gz_example_bringup")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ros_gz_example_bringup")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ros_gz_example_bringup")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -63,7 +63,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/environment" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/environment" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -71,42 +71,42 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/environment" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/environment" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_index/share/ament_index/resource_index/packages/ros_gz_example_bringup")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_index/share/ament_index/resource_index/packages/ros_gz_example_bringup")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup/cmake" TYPE FILE FILES
-    "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_core/ros_gz_example_bringupConfig.cmake"
-    "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_core/ros_gz_example_bringupConfig-version.cmake"
+    "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_core/ros_gz_example_bringupConfig.cmake"
+    "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/ament_cmake_core/ros_gz_example_bringupConfig-version.cmake"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_bringup/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_gz_example_bringup" TYPE FILE FILES "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_bringup/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -117,5 +117,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_bringup/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

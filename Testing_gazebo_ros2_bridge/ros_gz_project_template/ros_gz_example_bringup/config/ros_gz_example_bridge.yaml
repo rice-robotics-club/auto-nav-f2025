@@ -34,11 +34,8 @@
   ros_type_name: "tf2_msgs/msg/TFMessage"
   gz_type_name: "gz.msgs.Pose_V"
   direction: GZ_TO_ROS
-
-# Bridge for GNSS Sensor Data added Sept 25
-# Update Sept 29: ga_topic_name alignment compliance
-- gz_topic_name: "/navsat"
-  ros_topic_name: "/gnss/fix"
-  ros_type_name: "sensor_msgs/msg/NavSatFix"
-  gz_type_name: "gz.msgs.NavSat"
-  direction: GZ_TO_ROS
+- ros_topic_name: "/gnss_waypoint"
+  gz_topic_name: "/gnss_waypoint"
+  ros_type_name: "geometry_msgs/msg/Point"
+  gz_type_name: "gz.msgs.Vector3d"
+  direction: ROS_TO_GZ

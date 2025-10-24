@@ -2,7 +2,7 @@
 
 # since this file is sourced use either the provided AMENT_CURRENT_PREFIX
 # or fall back to the destination set at configure time
-: ${AMENT_CURRENT_PREFIX:="/home/roths/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_gazebo"}
+: ${AMENT_CURRENT_PREFIX:="/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_gazebo"}
 if [ ! -d "$AMENT_CURRENT_PREFIX" ]; then
   if [ -z "$COLCON_CURRENT_PREFIX" ]; then
     echo "The compile time prefix path '$AMENT_CURRENT_PREFIX' doesn't " \

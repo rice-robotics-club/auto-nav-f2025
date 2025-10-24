@@ -1,0 +1,52 @@
+[0.010s] Invoking command in '/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_application -DCMAKE_INSTALL_PREFIX=/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application
+[0.239s] -- The C compiler identification is GNU 13.3.0
+[0.413s] -- The CXX compiler identification is GNU 13.3.0
+[0.448s] -- Detecting C compiler ABI info
+[0.596s] -- Detecting C compiler ABI info - done
+[0.609s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.609s] -- Detecting C compile features
+[0.610s] -- Detecting C compile features - done
+[0.628s] -- Detecting CXX compiler ABI info
+[0.765s] -- Detecting CXX compiler ABI info - done
+[0.778s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.778s] -- Detecting CXX compile features
+[0.778s] -- Detecting CXX compile features - done
+[0.798s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.017s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.217s] -- Found rclcpp: 28.1.12 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.330s] -- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.363s] -- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.406s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.443s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.612s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.619s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.788s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.820s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.860s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.015s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[2.219s] -- Configuring done (2.2s)
+[2.223s] -- Generating done (0.0s)
+[2.226s] -- Build files have been written to: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application
+[2.240s] Invoked command in '/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/ros_gz_project_template/ros_gz_example_application -DCMAKE_INSTALL_PREFIX=/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application
+[2.241s] Invoking command in '/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application -- -j22 -l22
+[2.300s] Invoked command in '/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application -- -j22 -l22
+[2.301s] Invoking command in '/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application
+[2.314s] -- Install configuration: ""
+[2.314s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/lib/ros_gz_example_application/waypoint_publisher.py
+[2.314s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/lib/ros_gz_example_application/waypoint_subscriber.py
+[2.315s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ament_index/resource_index/package_run_dependencies/ros_gz_example_application
+[2.315s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ament_index/resource_index/parent_prefix_path/ros_gz_example_application
+[2.315s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/environment/ament_prefix_path.sh
+[2.315s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/environment/ament_prefix_path.dsv
+[2.315s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/environment/path.sh
+[2.315s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/environment/path.dsv
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/local_setup.bash
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/local_setup.sh
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/local_setup.zsh
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/local_setup.dsv
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/package.dsv
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ament_index/resource_index/packages/ros_gz_example_application
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/cmake/ros_gz_example_applicationConfig.cmake
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/cmake/ros_gz_example_applicationConfig-version.cmake
+[2.316s] -- Installing: /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/install/ros_gz_example_application/share/ros_gz_example_application/package.xml
+[2.318s] Invoked command in '/home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/cameron/robotics_2026/auto-nav-f2025/Testing_gazebo_ros2_bridge/build/ros_gz_example_application
