@@ -32,6 +32,7 @@ setup(
             'aruco_node = aruco_detection.aruco_node:main',
             'aruco_generate_marker = aruco_detection.aruco_generate_marker:main',
             'webcam_publisher = aruco_detection.webcam_publisher:main',
+            'realsense_publisher = aruco_detection.realsense_publisher:main',
         ],
     },
 )
