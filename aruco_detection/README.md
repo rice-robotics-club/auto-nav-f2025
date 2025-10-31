@@ -1,3 +1,20 @@
+# Rover Aruco Marker Detection Setup Guide in [INSTALL.md](./INSTALL.md).
+
+# Aruco Marker IDs for our URC Rover
+We have 11 ArUco tags/IDs
+- `1`: Start post for Auto Nav mission
+- `2`: Post 1 for Auto Nav mission
+- `3`: Post 2 for Auto Nav mission
+- `4`: Top left corner of keyboard for Equipment Servicing mission
+- `5`: Top right corner of keyboard for Equipment Servicing mission
+- `6`: Bottom right corner of keyboard for Equipment Servicing mission
+- `7`: Bottom left corner of keyboard for Equipment Servicing mission
+- `8`: Top left corner of USB-C port for Equipment Servicing mission
+- `9`: Top right corner of USB-C port for Equipment Servicing mission
+- `10`: Bottom right corner of USB-C port for Equipment Servicing mission
+- `11`: Bottom left corner of USB-C port for Equipment Servicing mission
+
+------
 # aruco_detection
 
 ROS2 Wrapper for OpenCV Aruco Marker Tracking
