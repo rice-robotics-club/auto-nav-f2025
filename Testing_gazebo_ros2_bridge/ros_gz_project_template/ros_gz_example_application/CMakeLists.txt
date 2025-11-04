@@ -11,6 +11,7 @@ find_package(geometry_msgs REQUIRED)
 install(PROGRAMS
   src/waypoint_publisher.py
   src/waypoint_subscriber.py
+  src/waypoint_navigator.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
