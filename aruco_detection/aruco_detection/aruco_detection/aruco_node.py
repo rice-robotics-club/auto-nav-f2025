@@ -81,6 +81,7 @@ class ArucoNode(rclpy.node.Node):
         # Set up publishers
         self.poses_pub = self.create_publisher(PoseArray, "aruco_poses", 10)
         self.markers_pub = self.create_publisher(ArucoMarkers, "aruco_markers", 10)
+        self.image_pub = self.create_publisher(Image, "aruco_detection/image", 10)
 
         # Set up fields for camera parameters
         self.info_msg = None
@@ -168,6 +169,11 @@ class ArucoNode(rclpy.node.Node):
 
             self.poses_pub.publish(pose_array)
             self.markers_pub.publish(markers)
+
+        # Publish annotated image for RViz visualization
+        output_msg = self.bridge.cv2_to_imgmsg(output, encoding='bgr8')
+        output_msg.header = img_msg.header
+        self.image_pub.publish(output_msg)
 
         # Display the image with markers and axes
         cv2.imshow("Detected Markers", output)
