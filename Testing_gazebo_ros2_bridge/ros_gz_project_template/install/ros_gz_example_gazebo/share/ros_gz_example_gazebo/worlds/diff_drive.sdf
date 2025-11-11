@@ -105,5 +105,10 @@
       </plugin>
     </model>
 
+    <include>
+      <uri>package://ros_gz_example_description/models/aruco_box_1</uri>
+      <name>aruco_box_1</name>
+      <pose>2 0 0.5 0 0 0</pose>
+    </include>
   </world>
 </sdf>

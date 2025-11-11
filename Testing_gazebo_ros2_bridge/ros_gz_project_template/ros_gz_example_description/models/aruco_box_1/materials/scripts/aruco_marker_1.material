@@ -1,0 +1,31 @@
+material ArucoMarker/Tag1
+{
+  technique
+  {
+    pass
+    {
+      // Set ambient and diffuse to white, so the texture appears at full brightness
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      
+      // Set specular to black (no shininess) for a matte paper look
+      specular 0 0 0 1 0
+      
+      // Disables lighting on this material so it's always bright,
+      // which is useful for markers.
+      // Remove this line if you want it to be affected by scene lighting.
+      emissive 1 1 1 1
+
+      texture_unit
+      {
+        // This is the name of your texture file.
+        // It's found relative to the paths we'll define in the SDF.
+        texture marker_1.png
+        
+        // Use anisotropic filtering for better quality when viewed at an angle
+        filtering anisotropic
+        max_anisotropy 16
+      }
+    }
+  }
+}

@@ -34,6 +34,7 @@ def generate_launch_description():
     pkg_project_gazebo = get_package_share_directory('ros_gz_example_gazebo')
     pkg_project_description = get_package_share_directory('ros_gz_example_description')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
+    pkg_aruco_detecetion = get_package_share_directory('aruco_detection')
 
     # Load the SDF file from "description" package
     sdf_file  =  os.path.join(pkg_project_description, 'models', 'diff_drive', 'model.sdf')
@@ -105,7 +106,24 @@ def generate_launch_description():
         name='waypoint_navigator',
         output='screen'
     )
-    
+
+    # ArUco Detection Node
+    aruco_detection_node = Node(
+        package='aruco_detection',
+        executable='aruco_node',
+        name='aruco_detector',
+        output='screen',
+        parameters=[
+            {'use_sim_time': True},  # Important for simulation!
+            {'marker_size': 0.15},  # Adjust this to match your marker size in meters
+            {'aruco_dictionary_id': 'DICT_4X4_250'},
+        ],
+        remappings=[
+            ('/image_raw', '/diff_drive/camera'),
+            ('/camera_info', '/diff_drive/camera_info'),
+        ]
+    )
+
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('rviz', default_value='true',
@@ -115,5 +133,6 @@ def generate_launch_description():
         rviz,
         waypoint_publisher_node,
         waypoint_subscriber_node,
-        waypoint_navigator_node 
+        waypoint_navigator_node,
+        aruco_detection_node
     ])
