@@ -27,6 +27,12 @@ def generate_launch_description():
         description='RealSense stream type: color, depth, infra1, or infra2'
     )
 
+    visualize_keyboard_arg = DeclareLaunchArgument(
+        'visualize_keyboard',
+        default_value='false',
+        description='Start keyboard center visualizer'
+    )
+
     # Get configuration file paths
     aruco_params = os.path.join(
         get_package_share_directory('aruco_detection'),
@@ -97,6 +103,13 @@ def generate_launch_description():
         executable='keyboard_detection'
     )
 
+    # Keyboard visualizer node (optional)
+    keyboard_visualizer_node = Node(
+        package='aruco_detection',
+        executable='keyboard_visualizer',
+        condition=IfCondition(LaunchConfiguration('visualize_keyboard'))
+    )
+
     # RViz node (conditional)
     rviz_node = Node(
         package='rviz2',
@@ -111,6 +124,7 @@ def generate_launch_description():
         use_rviz_arg,
         camera_type_arg,
         stream_type_arg,
+        visualize_keyboard_arg,
         # Nodes
         static_transform_node,
         webcam_publisher_node,
@@ -118,5 +132,6 @@ def generate_launch_description():
         realsense_publisher_node,
         aruco_node,
         rviz_node,
-        keyboard_node
+        keyboard_node,
+        keyboard_visualizer_node
     ])

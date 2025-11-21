@@ -34,6 +34,7 @@ setup(
             'webcam_publisher = aruco_detection.webcam_publisher:main',
             'realsense_publisher = aruco_detection.realsense_publisher:main',
             'keyboard_detection = aruco_detection.keyboard_detection:main',
+            'keyboard_visualizer = aruco_detection.keyboard_visualizer:main',
         ],
     },
 )
