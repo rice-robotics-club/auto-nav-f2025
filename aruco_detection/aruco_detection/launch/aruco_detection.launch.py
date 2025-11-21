@@ -91,6 +91,12 @@ def generate_launch_description():
         parameters=[aruco_params]
     )
 
+    # Keyboard detection node
+    keyboard_node = Node(
+        package='aruco_detection',
+        executable='keyboard_detection'
+    )
+
     # RViz node (conditional)
     rviz_node = Node(
         package='rviz2',
@@ -111,5 +117,6 @@ def generate_launch_description():
         realsense_camera_node,
         realsense_publisher_node,
         aruco_node,
-        rviz_node
+        rviz_node,
+        keyboard_node
     ])
