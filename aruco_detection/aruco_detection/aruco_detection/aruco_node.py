@@ -175,6 +175,8 @@ class ArucoNode(rclpy.node.Node):
         output_msg.header = img_msg.header
         self.image_pub.publish(output_msg)
 
+        # resize output by 50%
+        output = cv2.resize(output, (0,0), fx=0.5, fy=0.5)
         # Display the image with markers and axes
         cv2.imshow("Detected Markers", output)
         cv2.waitKey(1)
