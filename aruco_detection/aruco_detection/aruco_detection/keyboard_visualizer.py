@@ -150,13 +150,10 @@ class KeyboardVisualizer(Node):
                     v = int(fy * y / z + cy)
 
                     # Draw small blue dot for each key
-                    cv2.circle(output, (u, v), 3, (255, 0, 0), -1)  # Blue filled circle
+                    cv2.circle(output, (u, v), 5, (0, 255, 0), -1)  # Blue filled circle
 
         # Display the image with keyboard center overlay (resize to fit screen)
-        display_scale = 0.50
-        display_width = int(output.shape[1] * display_scale)
-        display_height = int(output.shape[0] * display_scale)
-        display_img = cv2.resize(output, (display_width, display_height), interpolation=cv2.INTER_AREA)
+        display_img = cv2.resize(output, (0, 0), fx=0.50, fy=0.50)
         cv2.imshow("Keyboard Center Visualization", display_img)
         cv2.waitKey(1)
 
