@@ -10,7 +10,7 @@
 import rclpy
 from rclpy.node import Node
 from aruco_detection_interfaces.msg import ArucoMarkers, KeyboardKeys
-from geometry_msgs.msg import PoseStamped, Pose
+from geometry_msgs.msg import PoseStamped, Pose, PoseArray
 import yaml
 import numpy as np
 from pathlib import Path
@@ -58,6 +58,13 @@ class KeyboardNode(Node):
             '/keyboard_keys',
             10
         )
+        
+        # create keyboard pose publisher (for rviz)
+        self.keyboard_pose_publisher = self.create_publisher(
+            PoseArray,
+            '/keyboard_pose',
+            10
+        )
 
         # marker IDs for the keyboard corners (see github readme)
         self.target_ids = [4, 5, 6, 7]
@@ -85,12 +92,46 @@ class KeyboardNode(Node):
 
         return transform
 
-    def transform_keys_to_camera_frame(self, keyboard_center_pose):
+    def compute_keyboard_scale(self, target_poses_dict):
+        """
+        Compute scale factor by comparing detected marker spacing to expected spacing.
+        Compares distance between markers 4 and 5 in camera frame to real keyboard width.
+        USED FOR KEYBOARD TEST IMAGE, NOT NEEDED FOR REAL KEYBOARD!
+
+        Args:
+            target_poses_dict: dict mapping marker_id -> Pose
+
+        Returns:
+            float: scale factor to apply to YAML coordinates
+        """
+        # Need markers 4 and 5 to compute horizontal spacing
+        if 4 in target_poses_dict and 5 in target_poses_dict:
+            pose_4 = target_poses_dict[4]
+            pose_5 = target_poses_dict[5]
+
+            # Calculate 3D distance between markers 4 and 5 in camera frame
+            dx = pose_5.position.x - pose_4.position.x
+            dy = pose_5.position.y - pose_4.position.y
+            dz = pose_5.position.z - pose_4.position.z
+            detected_dist = np.sqrt(dx**2 + dy**2 + dz**2)
+
+            # Expected distance on real keyboard (meters)
+            # This is the actual width of your keyboard
+            expected_dist = 0.354076  # Real keyboard width in meters
+
+            scale_factor = detected_dist / expected_dist
+            return scale_factor
+
+        # Default to no scaling if we can't compute it
+        return 1.0
+
+    def transform_keys_to_camera_frame(self, keyboard_center_pose, scale_factor=1.0):
         """
         Transform all key coordinates from keyboard frame to camera frame.
 
         Args:
             keyboard_center_pose: geometry_msgs/Pose of keyboard center in camera frame
+            scale_factor: scale factor to apply to YAML coordinates (default 1.0)
 
         Returns:
             dict: {key_name: geometry_msgs/Pose in camera frame}
@@ -101,8 +142,12 @@ class KeyboardNode(Node):
         key_poses = {}
         # chat cooked here...
         for key_name, key_data in self.key_coords.items():
+            # Scale the key coordinates from keyboard frame
+            scaled_x = key_data['x'] * scale_factor
+            scaled_y = key_data['y'] * scale_factor
+
             # Create homogeneous point [x, y, 0, 1] in keyboard frame
-            point_kbd = np.array([key_data['x'], key_data['y'], 0.0, 1.0])
+            point_kbd = np.array([scaled_x, scaled_y, 0.0, 1.0])
 
             # Transform to camera frame
             point_cam = T_cam_from_kbd @ point_kbd
@@ -125,25 +170,26 @@ class KeyboardNode(Node):
         Callback for ArucoMarkers messages.
         Filters for markers with IDs 4, 5, 6, 7 and computes their geometric center.
         """
-        # Find poses for target marker IDs
-        target_poses = []
+        # Find poses for target marker IDs and build a dict
+        target_poses_dict = {}
 
         for i, marker_id in enumerate(msg.marker_ids):
             if marker_id in self.target_ids:
                 if i < len(msg.poses):
-                    target_poses.append(msg.poses[i])
+                    target_poses_dict[marker_id] = msg.poses[i]
                     self.get_logger().debug(f'Found marker {marker_id} at index {i}')
-        
-        if not target_poses:
+
+        if not target_poses_dict:
             self.get_logger().debug('No target markers (4, 5, 6, 7) detected in this frame')
             return
-        if len(target_poses) < 4:
-            self.get_logger().info(f'Only {len(target_poses)} target markers detected; need all 4 to compute keyboard center')
+        if len(target_poses_dict) < 4:
+            self.get_logger().info(f'Only {len(target_poses_dict)} target markers detected; need all 4 to compute keyboard center')
             # TODO: use partial info to estimate center if we have at least 2 markers
             return
 
 
         # compute geometric center yahhhh
+        target_poses = list(target_poses_dict.values())
         sum_x = sum(pose.position.x for pose in target_poses)
         sum_y = sum(pose.position.y for pose in target_poses)
         sum_z = sum(pose.position.z for pose in target_poses)
@@ -170,8 +216,18 @@ class KeyboardNode(Node):
         center_msg.pose = keyboard_center_pose
         self.center_publisher.publish(center_msg)
 
+        # compute scale factor from detected marker spacing
+        scale_factor = self.compute_keyboard_scale(target_poses_dict)
+        self.get_logger().info(f'Computed scale factor: {scale_factor:.4f}')
+
         # transform key poses (YAML coords are in keyboard frame) to camera frame
-        key_poses_dict = self.transform_keys_to_camera_frame(keyboard_center_pose)
+        key_poses_dict = self.transform_keys_to_camera_frame(keyboard_center_pose, scale_factor)
+
+        # publish key poses as PoseArray for RViz visualization
+        pose_array = PoseArray()
+        pose_array.header = msg.header
+        pose_array.poses = list(key_poses_dict.values())
+        self.keyboard_pose_publisher.publish(pose_array)
 
         # build KeyboardKeys message
         keys_msg = KeyboardKeys()
