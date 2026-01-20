@@ -1,16 +1,16 @@
 # Aruco Marker IDs for our URC Rover
 We have 11 ArUco tags/IDs
-- `1`: Start post for Auto Nav mission (0.2m x 0.2m with 0.025m white border)
-- `2`: Post 1 for Auto Nav mission (0.2m x 0.2m with 0.025m white border)
-- `3`: Post 2 for Auto Nav mission (0.2m x 0.2m with 0.025m white border)
-- `4`: Top left corner of keyboard for Equipment Servicing mission (0.02m x 0.02m, with 0.005m white border)
-- `5`: Top right corner of keyboard for Equipment Servicing mission (0.02m x 0.02m, with 0.005m white border)
-- `6`: Bottom right corner of keyboard for Equipment Servicing mission (0.02m x 0.02m, with 0.005m white border)
-- `7`: Bottom left corner of keyboard for Equipment Servicing mission (0.02m x 0.02m, with 0.005m white border)
-- `8`: Top left corner of USB-C port for Equipment Servicing mission (0.01m x 0.01m, with 0.0025m white border)
-- `9`: Top right corner of USB-C port for Equipment Servicing mission (0.01m x 0.01m, with 0.0025m white border)
-- `10`: Bottom right corner of USB-C port for Equipment Servicing mission (0.01m x 0.01m, with 0.0025m white border)
-- `11`: Bottom left corner of USB-C port for Equipment Servicing mission (0.01m x 0.01m, with 0.0025m white border)
+- `0`: Start post for Auto Nav mission (0.2m x 0.2m with 0.025m white border)
+- `1`: Post 1 for Auto Nav mission (0.2m x 0.2m with 0.025m white border)
+- `2`: Post 2 for Auto Nav mission (0.2m x 0.2m with 0.025m white border)
+- `1`: Top left corner of keyboard for Equipment Servicing mission (0.02m x 0.02m, with 0.005m white border)
+- `4`: Top right corner of keyboard for Equipment Servicing mission (0.02m x 0.02m, with 0.005m white border)
+- `3`: Bottom right corner of keyboard for Equipment Servicing mission (0.02m x 0.02m, with 0.005m white border)
+- `2`: Bottom left corner of keyboard for Equipment Servicing mission (0.02m x 0.02m, with 0.005m white border)
+- `4`: Top left corner of USB-C port for Equipment Servicing mission (0.01m x 0.01m, with 0.0025m white border)
+- `1`: Top right corner of USB-C port for Equipment Servicing mission (0.01m x 0.01m, with 0.0025m white border)
+- `3`: Bottom right corner of USB-C port for Equipment Servicing mission (0.01m x 0.01m, with 0.0025m white border)
+- `2`: Bottom left corner of USB-C port for Equipment Servicing mission (0.01m x 0.01m, with 0.0025m white border)
 
 ------
 # ArUco Detection Guide
