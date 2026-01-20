@@ -125,13 +125,12 @@ class KeyboardNode(Node):
         # Default to no scaling if we can't compute it
         return 1.0
 
-    def transform_keys_to_camera_frame(self, keyboard_center_pose, scale_factor=1.0):
+    def transform_keys_to_camera_frame(self, keyboard_center_pose):
         """
         Transform all key coordinates from keyboard frame to camera frame.
 
         Args:
             keyboard_center_pose: geometry_msgs/Pose of keyboard center in camera frame
-            scale_factor: scale factor to apply to YAML coordinates (default 1.0)
 
         Returns:
             dict: {key_name: geometry_msgs/Pose in camera frame}
@@ -142,12 +141,8 @@ class KeyboardNode(Node):
         key_poses = {}
         # chat cooked here...
         for key_name, key_data in self.key_coords.items():
-            # Scale the key coordinates from keyboard frame
-            scaled_x = key_data['x'] * scale_factor
-            scaled_y = key_data['y'] * scale_factor
-
             # Create homogeneous point [x, y, 0, 1] in keyboard frame
-            point_kbd = np.array([scaled_x, scaled_y, 0.0, 1.0])
+            point_kbd = np.array([key_data['x'], key_data['y'], 0.0, 1.0])
 
             # Transform to camera frame
             point_cam = T_cam_from_kbd @ point_kbd
@@ -216,12 +211,8 @@ class KeyboardNode(Node):
         center_msg.pose = keyboard_center_pose
         self.center_publisher.publish(center_msg)
 
-        # compute scale factor from detected marker spacing
-        scale_factor = self.compute_keyboard_scale(target_poses_dict)
-        self.get_logger().info(f'Computed scale factor: {scale_factor:.4f}')
-
         # transform key poses (YAML coords are in keyboard frame) to camera frame
-        key_poses_dict = self.transform_keys_to_camera_frame(keyboard_center_pose, scale_factor)
+        key_poses_dict = self.transform_keys_to_camera_frame(keyboard_center_pose)
 
         # publish key poses as PoseArray for RViz visualization
         pose_array = PoseArray()
