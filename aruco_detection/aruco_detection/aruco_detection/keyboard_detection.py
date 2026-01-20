@@ -32,6 +32,7 @@ class KeyboardNode(Node):
             with open(yaml_path, 'r') as f:
                 yaml_data = yaml.safe_load(f)
                 self.key_coords = yaml_data['keys']
+
             self.get_logger().info(f'Loaded {len(self.key_coords)} keys from YAML')
         except Exception as e:
             self.get_logger().error(f'Failed to load keys.yaml: {e}')
@@ -67,9 +68,9 @@ class KeyboardNode(Node):
         )
 
         # marker IDs for the keyboard corners (see github readme)
-        self.target_ids = [4, 5, 6, 7]
+        self.target_ids = [1, 4, 3, 2]
 
-        self.get_logger().info('Keyboard detection node started. Listening for markers 4, 5, 6, 7...')
+        self.get_logger().info('Keyboard detection node started. Listening for markers 1 (top-left), 4 (top-right), 3 (bottom-right), 2 (bottom-left)...')
 
     def create_transform_matrix(self, pose):
         """
@@ -109,7 +110,7 @@ class KeyboardNode(Node):
         # chat cooked here...
         for key_name, key_data in self.key_coords.items():
             # Create homogeneous point [x, y, 0, 1] in keyboard frame
-            point_kbd = np.array([key_data['x'], key_data['y'], 0.0, 1.0])
+            point_kbd = np.array([key_data['x']*6.7, key_data['y']*6.7, 0.0, 1.0])
 
             # Transform to camera frame
             point_cam = T_cam_from_kbd @ point_kbd
@@ -130,7 +131,7 @@ class KeyboardNode(Node):
     def aruco_callback(self, msg):
         """
         Callback for ArucoMarkers messages.
-        Filters for markers with IDs 4, 5, 6, 7 and computes their geometric center.
+        Filters for markers with IDs 1, 4, 3, 2 and computes their geometric center.
         """
         # Find poses for target marker IDs and build a dict
         target_poses_dict = {}
@@ -142,7 +143,7 @@ class KeyboardNode(Node):
                     self.get_logger().debug(f'Found marker {marker_id} at index {i}')
 
         if not target_poses_dict:
-            self.get_logger().debug('No target markers (4, 5, 6, 7) detected in this frame')
+            self.get_logger().debug('No target markers (1, 4, 3, 2) detected in this frame')
             return
         if len(target_poses_dict) < 4:
             self.get_logger().info(f'Only {len(target_poses_dict)} target markers detected; need all 4 to compute keyboard center')
