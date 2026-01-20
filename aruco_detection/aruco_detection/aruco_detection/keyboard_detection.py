@@ -92,39 +92,6 @@ class KeyboardNode(Node):
 
         return transform
 
-    def compute_keyboard_scale(self, target_poses_dict):
-        """
-        Compute scale factor by comparing detected marker spacing to expected spacing.
-        Compares distance between markers 4 and 5 in camera frame to real keyboard width.
-        USED FOR KEYBOARD TEST IMAGE, NOT NEEDED FOR REAL KEYBOARD!
-
-        Args:
-            target_poses_dict: dict mapping marker_id -> Pose
-
-        Returns:
-            float: scale factor to apply to YAML coordinates
-        """
-        # Need markers 4 and 5 to compute horizontal spacing
-        if 4 in target_poses_dict and 5 in target_poses_dict:
-            pose_4 = target_poses_dict[4]
-            pose_5 = target_poses_dict[5]
-
-            # Calculate 3D distance between markers 4 and 5 in camera frame
-            dx = pose_5.position.x - pose_4.position.x
-            dy = pose_5.position.y - pose_4.position.y
-            dz = pose_5.position.z - pose_4.position.z
-            detected_dist = np.sqrt(dx**2 + dy**2 + dz**2)
-
-            # Expected distance on real keyboard (meters)
-            # This is the actual width of your keyboard
-            expected_dist = 0.354076  # Real keyboard width in meters
-
-            scale_factor = detected_dist / expected_dist
-            return scale_factor
-
-        # Default to no scaling if we can't compute it
-        return 1.0
-
     def transform_keys_to_camera_frame(self, keyboard_center_pose):
         """
         Transform all key coordinates from keyboard frame to camera frame.
