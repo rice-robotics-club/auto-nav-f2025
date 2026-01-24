@@ -13,7 +13,8 @@ from aruco_detection_interfaces.msg import ArucoMarkers, KeyboardKeys
 from geometry_msgs.msg import PoseStamped, Pose, PoseArray
 import yaml
 import numpy as np
-from pathlib import Path
+import os
+from ament_index_python.packages import get_package_share_directory
 import tf_transformations
 
 
@@ -21,9 +22,8 @@ class KeyboardNode(Node):
     def __init__(self):
         super().__init__('keyboard_node')
 
-        
-        # TODO: holy chopped path lmao
-        yaml_path = Path('/home/baracuda/robotics/auto-nav-f2025/aruco_detection/keys.yaml')
+        package_share = get_package_share_directory('aruco_detection')
+        yaml_path = os.path.join(package_share, 'config', 'keys.yaml')
         
         self.get_logger().info(f'Loading keys from: {yaml_path}')
 
