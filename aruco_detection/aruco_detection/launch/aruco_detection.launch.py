@@ -33,6 +33,12 @@ def generate_launch_description():
         description='Start keyboard center visualizer'
     )
 
+    smoothing_alpha_arg = DeclareLaunchArgument(
+        'smoothing_alpha',
+        default_value='0.7',
+        description='Smoothing factor for marker poses (0.0 = infinite smoothing, 1.0 = no smoothing)'
+    )
+
     # Get configuration file paths
     aruco_params = os.path.join(
         get_package_share_directory('aruco_detection'),
@@ -94,7 +100,10 @@ def generate_launch_description():
     aruco_node = Node(
         package='aruco_detection',
         executable='aruco_node',
-        parameters=[aruco_params]
+        parameters=[
+            aruco_params,
+            {'smoothing_alpha': LaunchConfiguration('smoothing_alpha')}
+        ]
     )
 
     # Keyboard detection node
@@ -125,6 +134,7 @@ def generate_launch_description():
         camera_type_arg,
         stream_type_arg,
         visualize_keyboard_arg,
+        smoothing_alpha_arg,
         # Nodes
         static_transform_node,
         webcam_publisher_node,

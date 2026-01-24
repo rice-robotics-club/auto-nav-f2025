@@ -53,7 +53,7 @@ class ArucoNode(rclpy.node.Node):
             ),
         )
 
-        self.marker_size = 0.1 # meters
+        self.marker_size = 0.02 # meters
         self.get_logger().info(f"Marker size: {self.marker_size}")
 
         self.marker_family = 'DICT_4X4_50'
@@ -64,6 +64,10 @@ class ArucoNode(rclpy.node.Node):
 
         info_topic = 'camera_info'
         self.get_logger().info(f"Image info topic: {info_topic}")
+
+        self.declare_parameter("smoothing_alpha", 0.7)
+        self.smoothing_alpha = self.get_parameter("smoothing_alpha").get_parameter_value().double_value
+        self.get_logger().info(f"Smoothing alpha: {self.smoothing_alpha}")
 
         self.camera_frame = (
             self.get_parameter("camera_frame").get_parameter_value().string_value
@@ -93,6 +97,10 @@ class ArucoNode(rclpy.node.Node):
         self.aruco_parameters = cv2.aruco.DetectorParameters()
         self.detector = cv2.aruco.ArucoDetector(self.aruco_dictionary, self.aruco_parameters)
         self.bridge = CvBridge()
+        
+        # Dictionary to store the previous smoothed pose for each marker ID
+        # Format: {marker_id: (position_np_array, orientation_quaternion_np_array)}
+        self.pose_tracker = {}
 
     def info_callback(self, info_msg):
         self.info_msg = info_msg
@@ -150,18 +158,46 @@ class ArucoNode(rclpy.node.Node):
                                     rvec, tvec, self.marker_size * 1.5, 2)
                     
                     pose = Pose()
-                    pose.position.x = tvec[0][0]
-                    pose.position.y = tvec[1][0]
-                    pose.position.z = tvec[2][0]
-
+                    
+                    # Current raw pose
+                    curr_pos = np.array([tvec[0][0], tvec[1][0], tvec[2][0]])
+                    
                     rot_matrix = np.eye(4)
                     rot_matrix[0:3, 0:3] = cv2.Rodrigues(rvec)[0]
-                    quat = tf_transformations.quaternion_from_matrix(rot_matrix)
+                    curr_quat = tf_transformations.quaternion_from_matrix(rot_matrix)
 
-                    pose.orientation.x = quat[0]
-                    pose.orientation.y = quat[1]
-                    pose.orientation.z = quat[2]
-                    pose.orientation.w = quat[3]
+                    # Apply smoothing if available
+                    key = marker_id[0]
+                    if key in self.pose_tracker:
+                        prev_pos, prev_quat = self.pose_tracker[key]
+                        
+                        # Smooth position (linear interpolation)
+                        alpha = self.smoothing_alpha
+                        new_pos = alpha * curr_pos + (1.0 - alpha) * prev_pos
+                        
+                        # Smooth orientation (SLERP)
+                        new_quat = tf_transformations.quaternion_slerp(prev_quat, curr_quat, alpha)
+                        
+                        self.pose_tracker[key] = (new_pos, new_quat)
+                        
+                        pose.position.x = new_pos[0]
+                        pose.position.y = new_pos[1]
+                        pose.position.z = new_pos[2]
+                        pose.orientation.x = new_quat[0]
+                        pose.orientation.y = new_quat[1]
+                        pose.orientation.z = new_quat[2]
+                        pose.orientation.w = new_quat[3]
+                    else:
+                        # First time seeing this marker, no smoothing
+                        self.pose_tracker[key] = (curr_pos, curr_quat)
+                        
+                        pose.position.x = curr_pos[0]
+                        pose.position.y = curr_pos[1]
+                        pose.position.z = curr_pos[2]
+                        pose.orientation.x = curr_quat[0]
+                        pose.orientation.y = curr_quat[1]
+                        pose.orientation.z = curr_quat[2]
+                        pose.orientation.w = curr_quat[3]
 
                     pose_array.poses.append(pose)
                     markers.poses.append(pose)
