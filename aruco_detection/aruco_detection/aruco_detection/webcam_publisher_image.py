@@ -3,7 +3,7 @@
 """
 Webcam Publisher Node
 
-This node captures images from a laptop webcam and publishes them to ROS2 topics.
+This node captures images from the keyboard test image and publishes them to ROS2 topics.
 
 Published Topics:
     /camera/image_raw (sensor_msgs.msg.Image)
@@ -32,18 +32,26 @@ class WebcamPublisher(Node):
         self.bridge = CvBridge()
 
         # Open webcam
-        webcam_index = 0 # change this to use select different cameras
-        self.cap = cv2.VideoCapture(webcam_index)
-        
-        if not self.cap.isOpened():
-            self.get_logger().error('Cannot open webcam')
+        self.cap = cv2.VideoCapture(0)
+
+        # Load local image instead of webcam
+        self.img = cv2.imread('/home/baracuda/robotics/auto-nav-f2025/aruco_detection/keyboard.jpg')
+
+        if self.img is None:
+            self.get_logger().error('Cannot load image from aruco_detection/keyboard.jpg')
             return
+
+        # if not self.cap.isOpened():
+        #     self.get_logger().error('Cannot open webcam')
+        #     return
 
         # Set camera info (basic defaults for webcam)
         self.camera_info = CameraInfo()
         self.camera_info.header.frame_id = 'camera_link'
-        self.camera_info.height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        self.camera_info.width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        # self.camera_info.height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        # self.camera_info.width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        self.camera_info.height = self.img.shape[0]
+        self.camera_info.width = self.img.shape[1]
         # Simple pinhole model
         self.camera_info.distortion_model = 'plumb_bob'
         # Focal length approximation (adjust as needed)
@@ -59,13 +67,14 @@ class WebcamPublisher(Node):
         self.get_logger().info('Webcam publisher started')
 
     def timer_callback(self):
-        ret, frame = self.cap.read()
-        if not ret:
-            self.get_logger().warn('Failed to capture frame')
-            return
+        # Use local image instead of webcam capture
+        # ret, frame = self.cap.read()
+        # if not ret:
+        #     self.get_logger().warn('Failed to capture frame')
+        #     return
 
         # Convert to ROS Image
-        ros_image = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
+        ros_image = self.bridge.cv2_to_imgmsg(self.img, encoding='bgr8')
         ros_image.header.stamp = self.get_clock().now().to_msg()
         ros_image.header.frame_id = 'camera_link'
 
@@ -77,7 +86,7 @@ class WebcamPublisher(Node):
         self.info_pub.publish(self.camera_info)
 
     def destroy_node(self):
-        self.cap.release()
+        # self.cap.release()  # Not needed when using static image
         super().destroy_node()
 
 
