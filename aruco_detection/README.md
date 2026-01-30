@@ -89,17 +89,8 @@ Specifically, follow **Step 2, Option 1 (Linux Debian Installation)** from the g
 
 **Step 2: Install ROS2 RealSense Wrapper Packages**
 
-Install each package individually:
+Follow the official installation guide at: https://github.com/realsenseai/realsense-ros#option-1-install-debian-package-from-ros-servers-foxy-eol-distro-is-not-supported-by-this-option
 
-```bash
-sudo apt install ros-jazzy-realsense2-dbsym
-sudo apt install ros-jazzy-realsense2-dbgsym
-sudo apt install ros-jazzy-realsense2-description
-sudo apt install ros-jazzy-realsense2-camera-dbgsym
-sudo apt install ros-jazzy-realsense2-camera-msgs-dbgsym
-sudo apt install ros-jazzy-realsense2-camera
-sudo apt install ros-jazzy-realsense2-camera-msgs
-```
 
 **Step 3: Verify Installation**
 
