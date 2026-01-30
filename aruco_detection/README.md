@@ -49,17 +49,6 @@ source /opt/ros/jazzy/setup.bash       # Load ROS2 tools
 source install/setup.bash              # Load your workspace
 ```
 
-### Workspace vs Package
-
-- **Workspace** = A folder containing multiple packages (your whole robot project)
-- **Package** = A single reusable component (like `aruco_detection` for marker tracking)
-
-**Analogy:** If your robot is a car, the workspace is the garage, and each package is a specific part (engine, wheels, GPS).
-
-For this project, you'll have **one workspace** with **two packages**:
-- `aruco_detection` - Main detection logic
-- `aruco_detection_interfaces` - Custom message types
-
 ---
 
 ## 2. Setting Up Your Development Environment
@@ -67,19 +56,13 @@ For this project, you'll have **one workspace** with **two packages**:
 ### Install Python Dependencies
 
 This project needs specific versions of OpenCV and NumPy to work with ROS2 Jazzy.
-
-**Why specific versions matter:**
-- **OpenCV 4.8.x** - Has the `ArucoDetector` API we use
-- **NumPy < 2.0** - Required for ROS2's `cv_bridge` (converts between ROS and OpenCV images)
+- **OpenCV 4.8.x**
+- **NumPy < 2.0** 
 
 **Installation:**
 ```bash
 pip install opencv-contrib-python==4.8.1.78 numpy==1.26.4 pyrealsense2 --break-system-packages
 ```
-
-**Note on Virtual Environments:**
-
-For simplicity, we'll install packages system-wide. This is the most straightforward approach and avoids potential confusion with sourcing order and workspace setup.
 
 ### Clone the Repository
 
@@ -214,6 +197,9 @@ ros2 run aruco_detection aruco_generate_marker --id 1 --size 200 --dictionary DI
 
 This creates a file called `marker_0001.png` in your current directory.
 
+Some are already printed for the keyboard in the drawer downstairs in the OEDK!
+
+
 **What to do with it:**
 - **Option 1:** Print it on paper
 - **Option 2:** Display it on your phone or a second monitor
@@ -261,27 +247,6 @@ ros2 launch aruco_detection aruco_detection.launch.py camera_type:=realsense str
 
 **Note:** Always use `stream_type:=color` for ArUco marker detection. The other streams are provided for other use cases (not currently used).
 
-### What You Should See
-
-When the system launches successfully, you'll see:
-
-**1. OpenCV Window - "Detected Markers"**
-- Live webcam feed
-- When you hold up your marker:
-  - Green outline around the detected marker
-  - Red, green, and blue axes overlaid on the marker (showing its 3D orientation)
-
-**2. RViz Window (if enabled)**
-- A 3D view with a grid
-- When you hold up your marker:
-  - Small colored axes appear in the 3D space (red=X, green=Y, blue=Z)
-  - These show where the marker is relative to the camera
-
-**How to use RViz:**
-- **Scroll wheel:** Zoom in/out
-- **Middle-click + drag:** Pan around the scene
-- **Left-click + drag:** Rotate your viewpoint
-
 **3. Terminal Output**
 You should see logs like:
 ```
@@ -301,40 +266,17 @@ ROS2 uses **topics** for communication between different parts of your robot sof
 - Other nodes **tune in** (subscribe) to receive that data
 - Many nodes can publish or subscribe to the same topic
 
-### System Architecture
-
-Here's how the different components connect in Intel RealSense mode:
-
-```mermaid
-flowchart LR
-    Camera[RealSense D435i<br/>Hardware]
-    RS[realsense2_camera<br/>node]
-    RSP[realsense_publisher<br/>node]
-    Aruco[aruco_node]
-    RViz[rviz2]
-
-    Camera -->|USB 3.0| RS
-    RS -->|/camera/realsense2_camera/<br/>color/image_raw<br/>RGB8| RSP
-    RS -->|/camera/realsense2_camera/<br/>color/camera_info| RSP
-    RSP -->|/image_raw<br/>BGR8 converted| Aruco
-    RSP -->|/camera_info| Aruco
-    Aruco -->|/aruco_poses| RViz
-    Aruco -->|/aruco_markers| RViz
-    Aruco -->|/aruco_detection/image| Display[OpenCV Window]
-```
-
 **How it works:**
 
-1. **RealSense camera** connects via USB 3.0 and is managed by the `realsense2_camera` driver node
-2. **realsense2_camera node** publishes raw RGB images and factory calibration data
-3. **realsense_publisher node** (our custom bridge):
+1. **RealSense camera** connects via USB 3.0 and is managed by the `realsense2_camera` driver node (in `realsense_publisher.py`)
+2. **realsense2_camera node** publishes raw RGB images and factory calibration data (in `realsense_publisher.py`)
+3. **realsense_publisher node** (our custom bridge): (in `realsense_publisher.py`)
    - Subscribes to RealSense topics
    - Converts RGB images to BGR format (required by OpenCV/ArUco)
    - Republishes to standardized topic names that `aruco_node` expects
-4. **aruco_node** processes images and publishes marker detections
-5. **RViz and OpenCV** display the results
+4. **aruco_node** processes images and publishes marker detections (in `aruco_node.py`)
+5. **RViz and OpenCV** display the results (done in `aruco_node.py`)
 
-This architecture allows us to use different cameras (webcam or RealSense) while keeping the ArUco detection code unchanged.
 
 ### Key Topics in This System
 
@@ -353,6 +295,7 @@ These topics provide camera data to the system:
 | `/camera_info` | `realsense_publisher` | `sensor_msgs/CameraInfo` | Remapped calibration data |
 
 **Note:** The `realsense_publisher` node acts as a bridge, converting and remapping RealSense topics to the standardized `/image_raw` and `/camera_info` that `aruco_node` expects.
+**NOTE:** may need to rethink above for Gstreamer or any Jetson GPU inference stuff...
 
 **Webcam Mode Topics:**
 
